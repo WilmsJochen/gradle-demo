@@ -9,7 +9,14 @@ Init the java project following this guide, https://docs.gradle.org/current/user
 `gradle init`
 
 ## Implement dependencies
-The `build.gradle` file contains a list of dependencies required to build the application. You can add following basic spring-boot dependencies in this list and build the project again.
+The `build.gradle` file contains a list of plugins and dependencies required to build the application.
+You can add following basic spring-boot plugins in this file.
+```
+    id("org.springframework.boot") version "3.2.2"
+    id("io.spring.dependency-management") version "1.1.4"
+```
+
+Do not forget to include the relevant dependencies on springboot too.
 ```
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
@@ -19,6 +26,11 @@ The `build.gradle` file contains a list of dependencies required to build the ap
     implementation("org.springframework.boot:spring-boot-starter-logging")
     implementation("org.springframework.boot:spring-boot-starter-websocket")
     implementation("org.springframework.boot:spring-boot-starter-quartz")
+```
+
+You could also include any other dependency required by the project. For example the google guava package. 
+```
+    implementation 'com.google.guava:guava:31.1-jre'
 ```
 
 
